@@ -5,8 +5,8 @@ function Dashboard() {
     <div className="home-page">
       <div className="home-status">
         <div className="home-status-left">
-          <span>6:48</span>
-          <span>Wed, Dec 10</span>
+          <span>2:38</span>
+          <span>Mon, Feb 16</span>
         </div>
         <div className="home-status-right">LTE · 92%</div>
       </div>

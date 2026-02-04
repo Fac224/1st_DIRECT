@@ -72,7 +72,7 @@ function HelloTasks() {
           </div>
         </div>
 
-        <Link className="hello-logout" to="/hello-work">
+        <Link className="hello-logout" to="/">
           Log Out from HELLO: Job
         </Link>
 

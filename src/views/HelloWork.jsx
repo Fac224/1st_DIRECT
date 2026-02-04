@@ -71,9 +71,9 @@ function HelloWork() {
         <div className="hello-bus" aria-hidden="true">
           🚌
         </div>
-        <button className="hello-logout" type="button">
+        <Link className="hello-logout" to="/">
           Log Out from HELLO: Job
-        </button>
+        </Link>
         <div className="hello-footer">
           <span>Change Language</span>
           <span>Version 2.2.8</span>
