@@ -4,11 +4,11 @@ function DirectRoutes() {
   return (
     <div className="direct-routes">
       <header className="direct-routes-header">
-        <Link className="direct-routes-menu" to="/">
-          ☰
+        <Link className="direct-routes-menu" to="/route-menu">
+          ←
         </Link>
         <div className="direct-routes-title">Routes</div>
-        <div className="direct-routes-spacer" />
+        <img className="direct-logo" src="/drive-logo.png" alt="Direct logo" />
       </header>
 
       <div className="direct-routes-body">

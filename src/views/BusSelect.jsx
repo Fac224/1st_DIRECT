@@ -4,25 +4,27 @@ function BusSelect() {
   return (
     <div className="bus-select">
       <header className="direct-routes-header">
-        <Link className="direct-routes-menu" to="/">
-          ☰
-        </Link>
-        <div className="direct-routes-title">Bus Selection</div>
         <div className="direct-routes-spacer" />
+        <div className="direct-routes-title">Bus Selection</div>
+        <img className="direct-logo" src="/drive-logo.png" alt="Direct logo" />
       </header>
 
       <main className="bus-select-body">
-        <Link className="bus-card" to="/route-menu">
+        <Link className="bus-card bus-card-big" to="/route-menu">
           <div className="bus-card-label">Big Bus</div>
           <img className="bus-card-image" src="/bus-big.png" alt="Big bus" />
         </Link>
 
-        <div className="bus-card">
+        <div className="bus-card bus-card-small">
           <div className="bus-card-label">Small Bus</div>
           <img className="bus-card-image" src="/bus-small.png" alt="Small bus" />
         </div>
 
-        <div className="bus-card">
+        <Link className="bus-dashboard" to="/">
+          Dashboard
+        </Link>
+
+        <div className="bus-card bus-card-caravan">
           <div className="bus-card-label">Caravan</div>
           <img
             className="bus-card-image"

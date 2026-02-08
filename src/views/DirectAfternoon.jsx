@@ -114,8 +114,7 @@ function DirectAfternoon() {
           </div>
         </div>
         <div className="direct-trip-right">
-          <div className="direct-trip-search">🔍</div>
-          <div className="direct-trip-count">0/3</div>
+          <img className="direct-logo" src="/drive-logo.png" alt="Direct logo" />
         </div>
       </header>
 
@@ -156,7 +155,7 @@ function DirectAfternoon() {
       </div>
 
       <Link className="direct-trip-start" to="/direct-driver">
-        Start Trip
+        Start Route
       </Link>
     </div>
   );

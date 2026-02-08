@@ -271,151 +271,120 @@ function DirectDriver() {
         }
         return next;
       });
-    }, 500);
+    }, 1300);
     return () => clearInterval(interval);
   }, [followEnabled, isSimulating, routeLine.length]);
 
   return (
     <div className="direct-driver">
-      <header className="hello-topbar">
-        <div className="hello-topbar-left">
-          <Link className="hello-back" to="/direct-afternoon">
-            ← Back
-          </Link>
-          <span className="hello-date">1:42 · Mon, Feb 16</span>
-        </div>
-        <div className="hello-title">
-          <span className="hello-badge">1</span>
-          Direct Driver
-        </div>
-        <div className="hello-topbar-right">
-          <span className="hello-time">01 : 42 PM</span>
-          <span className="hello-signal">LTE · 89%</span>
-        </div>
+      <header className="direct-routes-header">
+        <Link className="direct-routes-menu" to="/direct-afternoon">
+          ←
+        </Link>
+        <div className="direct-routes-title">Direct Driver</div>
+        <img className="direct-logo" src="/drive-logo.png" alt="Direct logo" />
       </header>
 
       <main className="direct-driver-body">
         {state.loading ? <p>Loading route...</p> : null}
         {state.error ? <p className="direct-error">{state.error}</p> : null}
 
-        <section className="direct-map" ref={mapRef} />
+        <section className="direct-map full" ref={mapRef} />
 
-        <div className="direct-hud">
-          <div>
-            <div className="direct-hud-label">Speed</div>
-            <div className="direct-hud-value">
-              {avgSpeedMph ? avgSpeedMph.toFixed(0) : "--"} mph
+        <div className="direct-top-bar">
+          <div className="direct-top-left">
+            <div className="direct-top-distance">0.5 mi</div>
+            <div className="direct-top-instruction">
+              {currentStep?.instruction || "Calculating route..."}
             </div>
           </div>
-          <div>
-            <div className="direct-hud-label">ETA</div>
-            <div className="direct-hud-value">
-              {state.totalDuration ? etaTime : "--"}
-            </div>
-          </div>
-          <div>
-            <div className="direct-hud-label">Remaining</div>
-            <div className="direct-hud-value">
-              {state.totalDuration ? Math.ceil(remainingSeconds / 60) : "--"} min
-            </div>
-          </div>
-        </div>
-
-        <div className="direct-turn-card">
-          <div className="direct-turn-title">Next Turns</div>
-          {nextSteps.length ? (
-            <div className="direct-turn-stack">
-              {nextSteps.map((step, index) => (
-                <div
-                  key={`${step.instruction}-${index}`}
-                  className={
-                    index === 0
-                      ? "direct-turn-item active"
-                      : "direct-turn-item"
-                  }
-                >
-                  <div className="direct-turn-instruction">
-                    {step.instruction || "Continue"}
-                  </div>
-                  <div className="direct-turn-meta">
-                    {step.distance ? `${step.distance} · ` : ""}
-                    {step.duration || ""}
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="direct-turn-instruction">Calculating route...</div>
-          )}
-        </div>
-
-        <div className="direct-controls">
           <button
-            className="direct-control-button"
+            className="direct-sim-button"
             type="button"
             onClick={() => setIsSimulating((prev) => !prev)}
             disabled={!routeLine.length}
           >
-            {isSimulating ? "Pause Navigation" : "Start Navigation"}
+            {isSimulating ? "Pause Navigation" : "Start Route"}
           </button>
-          <button
-            className="direct-control-button secondary"
-            type="button"
-            onClick={() => setFollowEnabled((prev) => !prev)}
-          >
-            {followEnabled ? "Follow: On" : "Follow: Off"}
-          </button>
-          <button
-            className="direct-control-button secondary"
-            type="button"
-            onClick={() => setVoiceEnabled((prev) => !prev)}
-          >
-            {voiceEnabled ? "Voice: On" : "Voice: Off"}
-          </button>
-          <button
-            className="direct-control-button secondary"
-            type="button"
-            onClick={() => {
-              setPointIndex(0);
-              setIsSimulating(false);
-            }}
-            disabled={!routeLine.length}
-          >
-            Reset
-          </button>
-          <div className="direct-control-status">
-            Current position: {currentPoint.lat.toFixed(5)},
-            {currentPoint.lng.toFixed(5)}
+        </div>
+
+        <div className="direct-bottom-sheet">
+          <div className="direct-hud compact">
+            <div>
+              <div className="direct-hud-label">Speed</div>
+              <div className="direct-hud-value">
+                {avgSpeedMph ? avgSpeedMph.toFixed(0) : "--"} mph
+              </div>
+            </div>
+            <div>
+              <div className="direct-hud-label">ETA</div>
+              <div className="direct-hud-value">
+                {state.totalDuration ? etaTime : "--"}
+              </div>
+            </div>
+            <div>
+              <div className="direct-hud-label">Remaining</div>
+              <div className="direct-hud-value">
+                {state.totalDuration ? Math.ceil(remainingSeconds / 60) : "--"} min
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="direct-card">
-          <div className="direct-card-title">Stops</div>
-          <ol className="direct-stops">
-            {stops.map((stop) => (
-              <li key={stop.label}>
-                {stop.label} ({stop.lat.toFixed(5)}, {stop.lng.toFixed(5)})
-              </li>
-            ))}
-          </ol>
-        </div>
+          <div className="direct-turn-card compact">
+            <div className="direct-turn-title">Next Turns</div>
+            {nextSteps.length ? (
+              <div className="direct-turn-stack">
+                {nextSteps.map((step, index) => (
+                  <div
+                    key={`${step.instruction}-${index}`}
+                    className={
+                      index === 0
+                        ? "direct-turn-item active"
+                        : "direct-turn-item"
+                    }
+                  >
+                    <div className="direct-turn-instruction">
+                      {step.instruction || "Continue"}
+                    </div>
+                    <div className="direct-turn-meta">
+                      {step.distance ? `${step.distance} · ` : ""}
+                      {step.duration || ""}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="direct-turn-instruction">Calculating route...</div>
+            )}
+          </div>
 
-        <div className="direct-card">
-          <div className="direct-card-title">Navigation Steps</div>
-          {state.steps.length ? (
-            <ol className="direct-steps">
-              {state.steps.map((step, index) => (
-                <li
-                  key={`${step.instruction}-${index}`}
-                  className={index === currentStepIndex ? "direct-step-active" : ""}
-                >
-                  {step.instruction || "Continue"}
-                </li>
-              ))}
-            </ol>
-          ) : (
-            <p className="direct-muted">No instructions returned yet.</p>
-          )}
+          <div className="direct-controls compact">
+            <button
+              className="direct-control-button secondary"
+              type="button"
+              onClick={() => setFollowEnabled((prev) => !prev)}
+            >
+              {followEnabled ? "Follow: On" : "Follow: Off"}
+            </button>
+            <button
+              className="direct-control-button secondary"
+              type="button"
+              onClick={() => setVoiceEnabled((prev) => !prev)}
+            >
+              {voiceEnabled ? "Voice: On" : "Voice: Off"}
+            </button>
+            <button
+              className="direct-control-button secondary"
+              type="button"
+              onClick={() => {
+                setPointIndex(0);
+                setIsSimulating(false);
+              }}
+              disabled={!routeLine.length}
+            >
+              Reset
+            </button>
+          </div>
         </div>
 
       </main>

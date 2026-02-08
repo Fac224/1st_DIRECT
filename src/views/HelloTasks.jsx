@@ -1,11 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function HelloTasks() {
+  const navigate = useNavigate();
   return (
     <div className="hello-work hello-tasks">
       <header className="hello-topbar">
         <div className="hello-topbar-left">
-          <span className="hello-menu">☰</span>
+          <button
+            className="hello-back"
+            type="button"
+            onClick={() => navigate(-1)}
+          >
+            ←
+          </button>
           <span className="hello-date">01:41 PM · Mon, Feb 16</span>
         </div>
         <div className="hello-title">

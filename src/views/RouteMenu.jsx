@@ -7,10 +7,10 @@ function RouteMenu() {
     <div className="route-menu">
       <header className="direct-routes-header">
         <Link className="direct-routes-menu" to="/bus-select">
-          ☰
+          ←
         </Link>
         <div className="direct-routes-title">Route Menu</div>
-        <div className="direct-routes-spacer" />
+        <img className="direct-logo" src="/drive-logo.png" alt="Direct logo" />
       </header>
 
       <main className="route-menu-body">
