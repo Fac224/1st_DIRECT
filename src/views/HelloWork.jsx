@@ -10,14 +10,14 @@ function HelloWork() {
       <header className="hello-topbar">
         <div className="hello-topbar-left">
           <span className="hello-menu">☰</span>
-          <span className="hello-date">6:12 · Tue, Feb 3</span>
+          <span className="hello-date">1:41 · Mon, Feb 16</span>
         </div>
         <div className="hello-title">
           <span className="hello-badge">1</span>
           HELLO: Job
         </div>
         <div className="hello-topbar-right">
-          <span className="hello-time">06 : 12 AM</span>
+          <span className="hello-time">01 : 41 PM</span>
           <span className="hello-signal">LTE · 90%</span>
         </div>
       </header>
@@ -33,7 +33,7 @@ function HelloWork() {
             <span className="hello-input-icon">🔍</span>
             <input
               id="last-name"
-              placeholder="E.g. Smith"
+              placeholder="E.g. Miller"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
             />
@@ -47,7 +47,7 @@ function HelloWork() {
                   <div className="hello-name">Harris, David C.</div>
                   <div className="hello-role">Driver CDL</div>
                 </div>
-                <div className="hello-id">***5406</div>
+                <div className="hello-id">***4560</div>
                 <div className="hello-status">
                   <span className="hello-check">✓</span> Duties available
                 </div>
@@ -58,7 +58,7 @@ function HelloWork() {
                   <div className="hello-name">Harris, Emily S.</div>
                   <div className="hello-role">Driver CDL</div>
                 </div>
-                <div className="hello-id">***1086</div>
+                <div className="hello-id">***0186</div>
                 <div className="hello-status">
                   <span className="hello-check">✓</span> Duties available
                 </div>

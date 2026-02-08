@@ -5,7 +5,7 @@ function Dashboard() {
     <div className="home-page">
       <div className="home-status">
         <div className="home-status-left">
-          <span>2:38</span>
+          <span>1:41</span>
           <span>Mon, Feb 16</span>
         </div>
         <div className="home-status-right">LTE · 92%</div>
@@ -32,8 +32,18 @@ function Dashboard() {
         </Link>
         <div className="home-tile">
           <div className="tile-icon tile-blue">◆</div>
-          <div className="tile-label">Skylar Drive (ALK)</div>
+          <div className="tile-label">Skylar Ride (ATP)</div>
         </div>
+        <Link className="home-tile" to="/bus-select">
+          <div className="tile-icon tile-logo">
+            <img
+              className="tile-logo-img"
+              src="/drive-logo.png"
+              alt="Skylar Ride logo"
+            />
+          </div>
+          <div className="tile-label">Direct Driver</div>
+        </Link>
         <div className="home-tile">
           <div className="tile-icon tile-sky">◎</div>
           <div className="tile-label">Close Call</div>

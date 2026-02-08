@@ -24,14 +24,14 @@ function HelloPin() {
           <Link className="hello-back" to="/hello-work">
             ← Back
           </Link>
-          <span className="hello-date">6:13 · Tue, Feb 3</span>
+          <span className="hello-date">1:41 · Mon, Feb 16</span>
         </div>
         <div className="hello-title">
           <span className="hello-badge">1</span>
           HELLO: Job
         </div>
         <div className="hello-topbar-right">
-          <span className="hello-time">06 : 31 AM</span>
+          <span className="hello-time">01 : 41 PM</span>
           <span className="hello-signal">LTE · 90%</span>
         </div>
       </header>
